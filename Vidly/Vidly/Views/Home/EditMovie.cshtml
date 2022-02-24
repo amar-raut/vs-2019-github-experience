@@ -1,0 +1,45 @@
+﻿@model Vidly.Models.NewMoviesViewModel
+
+@{
+    ViewBag.Title = "EditMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>EditMovie</h2>
+<br />
+<br />
+@using (Html.BeginForm("SaveMovie", "Movie", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(mv => mv.Name)
+        @Html.TextBoxFor(mv => mv.Name, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(mv => mv.Releasedate)
+        @Html.TextBoxFor(mv => mv.Releasedate, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(mv => mv.Dateadded)
+        @Html.TextBoxFor(mv => mv.Dateadded, "{0:d MMM yyyy}", new { @class = "form-control", })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(mv => mv.GenreList)
+        @Html.DropDownListFor(mv => mv.GenreId, new SelectList(Model.GenreList, "Id", "Genre_name"), "Select Genre", new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(m => m.Id)
+
+    <button type="submit" class="btn btn-primary">Add Movie</button>
+
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

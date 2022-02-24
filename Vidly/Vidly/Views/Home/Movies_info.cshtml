@@ -1,0 +1,30 @@
+﻿@{
+    Vidly.Models.MoviesViewModel mvm = (Vidly.Models.MoviesViewModel)ViewBag.Model1;
+    ViewBag.Title = "Movies";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+        @Html.ActionLink("New Movie", "", "", null, new {@class="btn btn-primary"})
+
+        <br />
+        <br />
+       
+
+    <table>
+        <tr>
+            <th>Movies</th>
+            <th>Genre</th>
+        </tr>
+
+        @foreach (var x in mvm.MoviesList)
+        {
+    <tr>
+        <td> @Html.ActionLink(x.Name, "EditMovie", "Home", new { id = x.Id }, null)</td>
+        <td> @x.Genre.Genre_name</td>
+    </tr>
+
+        }
+
+    </table>
+
+

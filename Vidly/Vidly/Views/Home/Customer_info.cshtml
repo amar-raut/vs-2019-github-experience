@@ -1,0 +1,24 @@
+﻿
+@{
+    Vidly.Models.MoviesViewModel mvm = (Vidly.Models.MoviesViewModel)ViewBag.Model1;
+    ViewBag.Title = "Customers";
+}
+
+
+<table>
+    <tr>
+        <th>Customres</th>
+        <th>MembershipType</th>
+
+    </tr>
+
+    @foreach (var x in mvm.CustomersList)
+    {
+<tr>
+    <td> @Html.ActionLink(x.Name, "Edit", "Home", new { id = x.Id }, null)</td>
+    <td>@x.MemberShipType.MembershipTypeName</td>
+</tr>
+
+    }
+
+</table>

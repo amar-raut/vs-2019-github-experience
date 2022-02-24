@@ -1,0 +1,55 @@
+﻿@model Vidly.ViewModels.MoviesViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Movies Name</h2>
+
+<table class="table table-striped table-hover">
+
+
+    @foreach (var mname in Model.Movielist)
+    {
+        <tr>
+            <th>@mname.Name</th>
+            <th> @Html.ActionLink(mname.Name, "MovieDetails", "Movies", new { id = mname.Id }, null) </th>
+        </tr>
+    }
+
+
+    @Html.ActionLink(“View Movies”,“Index”,“Movies”,new{id=1},null)
+
+</table>*@
+
+
+
+<h2>Movies</h2>
+
+
+<table class="table table-striped table-hover">
+
+    <tr>
+        <th>Movie</th>
+        <th>Genre</th>
+
+    </tr>
+
+    @foreach (var mname in Model.Movielist)
+    {
+        <tr>
+
+            <td>
+                @Html.ActionLink(mname.Name, "MovieDetails", "Movies", new { id = mname.Id }, null)
+
+            </td>
+            <td>
+                @mname.Genre.Name
+            </td>
+        </tr>
+    }
+
+
+
+</table>
